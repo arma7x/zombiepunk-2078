@@ -13,6 +13,7 @@ var COUNTDOWN_TIMER = null;
 var ZOMBIE_RESPAWN_TIME = TIMEOUT/1000;
 var SCORE = 0;
 var HP = 100;
+var ZOMBIES_SPAWNED = 0;
 
 var currentPlayer = null;
 var zombies = {};
@@ -74,6 +75,8 @@ function spawnZombies() {
     const _id = randomID();
     zombies[_id] = me.game.world.addChild(me.pool.pull("zombie", _id));
   }
+  ZOMBIES_SPAWNED += Object.keys(zombies).length;
+  document.getElementById('s_total').textContent = ZOMBIES_SPAWNED;
   // console.log('Zombie Left', Object.keys(zombies).length);
   if (SPAWN_TIMER) {
     clearInterval(SPAWN_TIMER);
@@ -106,6 +109,7 @@ function newGame() {
   ZOMBIE_RESPAWN_TIME = 60;
   SCORE = 0;
   HP = 100;
+  ZOMBIES_SPAWNED = 0;
 
   currentPlayer = me.game.world.addChild(me.pool.pull("human"));
   zombies = {};
@@ -149,12 +153,12 @@ function hideWelcomeMenu() {
 }
 
 function showGameoverMenu() {
+  displayKaiAds();
   const menu = document.getElementById('gameover-menu')
   menu.style.display = 'block';
 }
 
 function hideGameoverMenu() {
-  displayKaiAds();
   const menu = document.getElementById('gameover-menu')
   menu.style.display = 'none';
 }

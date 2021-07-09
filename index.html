@@ -50,7 +50,7 @@
         font-weight: bold;
         position: fixed;
         bottom:0;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0,0,0,0.5);
         color: #ffffff;
         width:240px;
         height:28px;
@@ -72,7 +72,7 @@
     <div id="playground" style="width:240px;height:320px;overflow:hidden!important;"></div>
     <div id="welcome-menu">
       <h4 style="text-align:center;margin:0;">~ZombiePunk 2078~</h4>
-      <pre style="margin:0px;margin-bottom:4px;">In 2078, zombies have taken over our world. Try your best to survive and kill as many zombies as possible. Zombies will spawn every 45 seconds & and their number continues to increase</pre>
+      <pre style="margin:0px;margin-bottom:2px;">In 2078, zombies have taken over our world. Try your best to survive and kill as many zombies as possible. Zombies will spawn every 45 seconds & and their number continues to increase. Headshot to kill the zombie</pre>
       <h4 style="margin:0px 0px;">Controls:</h4>
       <pre style="margin:0px;"><b>Call</b>     - New Game</pre>
       <pre style="margin:0px;"><b>D-PAD</b>    - Move</pre>
@@ -88,10 +88,10 @@
       <pre style="margin:0px;text-align:center;">Press Call to restart or EndCall to exit</pre>
     </div>
     <div id="score-board">
-      <pre class="score-text">HP <span id="s_hp">0</span></pre>
-      <pre class="score-text">KILL <span id="s_kill">0</span></pre>
+      <pre class="score-text">HP <span id="s_hp">0</span>%</pre>
+      <pre class="score-text">KILL <span id="s_kill">0</span>/<span id="s_total">0</span></pre>
+      <pre class="score-text">SPAWN <span id="s_spawn">0</span>s</pre>
       <pre class="score-text">ROUND <span id="s_round">0</span></pre>
-      <pre class="score-text">NEXT WAVE <span id="s_spawn">0</span>s</pre>
     </div>
     <script src="/app.js"></script>
   </body>
