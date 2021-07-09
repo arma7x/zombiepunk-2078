@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "name": "ZombiePunk 2078",
+  "description": "In 2078, zombies have taken over our world. Try your best to survive and kill as many zombies as possible.",
+  "launch_path": "/index.html",
+  "theme": "#873eff",
+  "theme_color": "#873eff",
+  "background_color": "#873eff",
+  "fullscreen": "true",
+  "chrome": {
+    "statusbar": "overlap"
+  },
+  "categories": [
+    "games"
+  ],
+  "icons": {
+    "56": "/icons/icon56x56.png",
+    "112": "/icons/icon112x112.png"
+  },
+  "developer": {
+    "name": "arma7x",
+    "url": "https://github.com/arma7x"
+  },
+  "origin": "app://zombiepunk-2078.arma7x.com",
+  "type": "web",
+  "permissions": {},
+  "messages": [],
+  "locales": {
+    "en-US": {
+      "name": "ZombiePunk 2078",
+      "subtitle": "In 2078, zombies have taken over our world. Try your best to survive and kill as many zombies as possible.",
+      "description": "In 2078, zombies have taken over our world. Try your best to survive and kill as many zombies as possible. Zombies will spawn every 45 seconds & and their number continues to increase"
+    }
+  },
+  "default_locale": "en-US"
+}
