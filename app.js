@@ -70,13 +70,13 @@ function spawnZombies() {
   document.getElementById('s_round').textContent = ROUND;
   ZOMBIE_RESPAWN_TIME = TIMEOUT/1000
   num = ((ROUND - 1) * 2) + TOTAL_ZOMBIES;
+  ZOMBIES_SPAWNED += num;
+  document.getElementById('s_total').textContent = ZOMBIES_SPAWNED;
   // console.log("Round", ROUND, "Spawn", num);
   for (var i=0;i<num;i++) {
     const _id = randomID();
     zombies[_id] = me.game.world.addChild(me.pool.pull("zombie", _id));
   }
-  ZOMBIES_SPAWNED += Object.keys(zombies).length;
-  document.getElementById('s_total').textContent = ZOMBIES_SPAWNED;
   // console.log('Zombie Left', Object.keys(zombies).length);
   if (SPAWN_TIMER) {
     clearInterval(SPAWN_TIMER);
@@ -367,7 +367,7 @@ game.Zombie = me.Sprite.extend({
       [getRandomInt((WIDTH - 51), 51), 50],
       [WIDTH - 50, 50],
       [50, HEIGHT - 50],
-      [WIDTH - 50, getRandomInt((WIDTH - 51), 51)],
+      [WIDTH - 50, getRandomInt((HEIGHT - 51), 51)],
       [WIDTH - 50, HEIGHT - 50],
     ]
     var pos = random[getRandomInt(0,5)];
