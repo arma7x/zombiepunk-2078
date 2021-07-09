@@ -364,10 +364,10 @@ game.Zombie = me.Sprite.extend({
   init: function(id="NONE") {
     var random = [
       [50, 50],
-      [(WIDTH - 50) / 2, 50],
+      [getRandomInt((WIDTH - 51), 51), 50],
       [WIDTH - 50, 50],
       [50, HEIGHT - 50],
-      [WIDTH - 50, (HEIGHT - 50) / 2],
+      [WIDTH - 50, getRandomInt((WIDTH - 51), 51)],
       [WIDTH - 50, HEIGHT - 50],
     ]
     var pos = random[getRandomInt(0,5)];
