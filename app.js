@@ -1,6 +1,6 @@
 const BULLET_SIZE = 2;
 const WIDTH = 750, HEIGHT = 750;
-const TOTAL_ZOMBIES = 10;
+const TOTAL_ZOMBIES = 15;
 const TIMEOUT = 45000;
 const SCREEN_W = 240;
 const SCREEN_H = 320;
@@ -389,7 +389,7 @@ game.Zombie = me.Sprite.extend({
     this.__DIRECTION__ = 'down';
     this.__DIRECTION_STACK__ = 0;
     this.__ACTION__ = 'idle';
-    this.vel = 30;
+    this.vel = 45;
     this.minX = (this.width / 2);
     this.maxX = WIDTH - (this.height / 2);
     this.minY = (this.height / 2);
