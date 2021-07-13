@@ -72,12 +72,10 @@ function spawnZombies() {
   num = ((ROUND - 1) * 2) + TOTAL_ZOMBIES;
   ZOMBIES_SPAWNED += num;
   document.getElementById('s_total').textContent = ZOMBIES_SPAWNED;
-  // console.log("Round", ROUND, "Spawn", num);
   for (var i=0;i<num;i++) {
     const _id = randomID();
     zombies[_id] = me.game.world.addChild(me.pool.pull("zombie", _id));
   }
-  // console.log('Zombie Left', Object.keys(zombies).length);
   if (SPAWN_TIMER) {
     clearInterval(SPAWN_TIMER);
     SPAWN_TIMER = null;
@@ -89,7 +87,6 @@ function spawnZombies() {
   }
   COUNTDOWN_TIMER = setInterval(() => {
     ZOMBIE_RESPAWN_TIME -= 1;
-    // console.log("Next Wave in", ZOMBIE_RESPAWN_TIME);
     document.getElementById('s_spawn').textContent = ZOMBIE_RESPAWN_TIME;
   }, 1000);
   me.audio.play("zombie_moan", true, null, 1);
@@ -173,6 +170,8 @@ var game = {
     { name: "bg-music", type: "audio", "src": "", }
   ],
   loaded: function() {
+    me.timer.maxfps = 30;
+    me.game.world.fps = 30;
     me.game.world.resize(WIDTH, HEIGHT);
     me.pool.register("human", game.Human);
     me.pool.register("zombie", game.Zombie);
@@ -227,6 +226,7 @@ var idleTimer = null;
 var reloding = false;
 
 me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
+  console.log(`keyCode`, keyCode);
   const plyr = currentPlayer
   const yAxis = ['up', 'down'];
   if ((keyCode === 32 || keyCode === 57) && !reloding && plyr != null) {
@@ -389,7 +389,7 @@ game.Zombie = me.Sprite.extend({
     this.__DIRECTION__ = 'down';
     this.__DIRECTION_STACK__ = 0;
     this.__ACTION__ = 'idle';
-    this.vel = 45;
+    this.vel = 42;
     this.minX = (this.width / 2);
     this.maxX = WIDTH - (this.height / 2);
     this.minY = (this.height / 2);
@@ -419,7 +419,6 @@ game.Zombie = me.Sprite.extend({
       if (HP <= 0) {
         HP = 0;
       }
-      // console.log('HP', HP);
       document.getElementById('s_hp').textContent = Math.floor(HP);
       if (HP <= 0) {
         gameOver()
@@ -542,9 +541,9 @@ game.Bullet = me.Entity.extend({
             delete zombies[t];
             SCORE += 1;
             document.getElementById('s_kill').textContent = SCORE;
-            // console.log('Zombie Left', Object.keys(zombies).length, SCORE);
             if (Object.keys(zombies).length === 0)
               me.audio.pause("zombie_moan");
+            break;
           }
         }
       }
