@@ -189,7 +189,7 @@ var game = {
     if (!me.video.init(SCREEN_W, SCREEN_H, {
         parent: document.getElementById('playground'),
         scale: "auto",
-        renderer: me.video.CANVAS,
+        renderer: me.video.AUTO,
         powerPreference: 'high-performance',
         antiAlias: false
       })) {
