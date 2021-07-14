@@ -229,7 +229,7 @@ me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
   console.log(`keyCode`, keyCode);
   const plyr = currentPlayer
   const yAxis = ['up', 'down'];
-  if ((keyCode === 32 || keyCode === 57) && !reloding && plyr != null) {
+  if ((keyCode === 32 || keyCode === 57) && !reloding && plyr != null && PLAYING) {
     me.audio.play("gun", false, null, 1);
     reloding = true;
     var bX, bY, bD;
